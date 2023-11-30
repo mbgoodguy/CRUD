@@ -1,0 +1,47 @@
+/*-------------
+START SETUP
+-------------*/
+html,
+body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    color: #007dfb;
+}
+
+/*-------------
+Footer
+-------------*/
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+#footer,
+.push {
+    height: 50px;
+}
+
+/*-------------
+Other
+-------------*/
+/* Buttons in (add/edit) */
+.btn-width {
+    width: 80px;
+}
+/* Button in navbar */
+#btn-nav {
+    float: right;
+    width: 110px;
+    margin-right: 25px;
+}
+.navbar {
+    border-bottom: 1px solid grey;
+}
+#footer {
+    border-top: 1px solid grey;
+}
+.f-size {
+    font-size: 18px;
+

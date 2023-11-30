@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+<!-- Navbar -->
+{% block nav-btn %}
+<a href="{% url 'data_create' %}" id="btn-nav" class="btn btn-outline-light">Go home</a>
+{% endblock nav-btn %}
+
+<!-- Page content -->
+
+{% block content %}
+    <div class="container mt-3">
+        <h5 class="card p-2 bg-warning text-center mb-3">LIST OF CANDIDATES</h5>
+        <table class="table table-bordered text-light" style="text-align: center;">
+            <thead class="table-warning">
+            <tr>
+                <th style="widht: 25%;">Name</th>
+                <th style="widht: 20%;">Phone</th>
+                <th style="widht: 23%;">Email</th>
+                <th style="widht: 7%;">Gender</th>
+                <th style="widht: 15%;">Career</th>
+                <th colspan="2" style="widht: 10%;">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for data in data_read %}
+                <tr>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.phone }}</td>
+                    <td>{{ data.email }}</td>
+                    <td>{{ data.gender }}</td>
+                    <td>{{ data.career }}</td>
+                    <td class="bg-warning">
+                        <a href="{% url 'data_update' data.id %}" class="btn btn-sm">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                    <td class="bg-secondary">
+                        <a href="/data/delete/{{ data.id }}" class="btn btn-sm">
+                            <i class="fas fa-trash-alt f-size"></i>
+                        </a>
+                    </td>
+                    {% empty %}
+                    <td colspan="6" style="color: #ff7f7f">No records found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+{% endblock content %}

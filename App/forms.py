@@ -12,7 +12,7 @@ class CandidateForm(forms.ModelForm):
             'email': 'Email',
         }
         # Placeholder
-        widget = {
+        widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Your name'}),
             'phone': forms.TextInput(attrs={'placeholder': 'Your phone'}),
             'email': forms.TextInput(attrs={'placeholder': 'Your email'}),
@@ -21,5 +21,5 @@ class CandidateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CandidateForm, self).__init__(*args, **kwargs)
         self.fields['gender'].choices = [("", "Select a gender"), ] + list(self.fields['gender'].choices)[1:]
-        self.fields['career'].empty_label = "Select an option"
+        self.fields['career'].empty_label = "Select a career"
         self.fields['email'].required = True
